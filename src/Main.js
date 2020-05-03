@@ -1,19 +1,32 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import Root from './Root';
+import * as stores from './common/stores';
+import { StatusBar, StyleSheet, View } from 'react-native';
+import { Provider } from 'mobx-react';
+import { colors } from './common/styles';
+
+const STATUSBAR_CONFIG = {
+  backgroundColor: colors.statusBar,
+  barStyle: 'light-content',
+  translucent: false
+}
 
 const Main = () => (
-  <View style={styles.container}>
-    <Text>Open up App.js to start working on your app!</Text>
-  </View>
+  <Provider {...stores}>
+    <View style={styles.container}>
+      <StatusBar {...STATUSBAR_CONFIG}/>
+      <Root/>
+    </View>
+  </Provider>
 );
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.defaultBackground,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    alignItems: 'stretch',
+    justifyContent: 'center'
+  }
 });
 
 export default Main;
