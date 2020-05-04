@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "HelloWorld",
+    "name": "Ethereum Wallet",
     "slug": "ether-wallet",
     "platforms": [
       "ios",

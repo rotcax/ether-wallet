@@ -17,7 +17,7 @@ export const notify = async (title, duration, driver = Toast) => {
   driver.show(title, { duration });
 }
 
-export const eraseAllData = () => {
+export const eraseAllData = async () => {
   await cleanStorage();
   cleanStores();
 }

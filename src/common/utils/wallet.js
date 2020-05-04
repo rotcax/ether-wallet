@@ -1,10 +1,10 @@
-import ethers from 'ethers';
+import { ethers } from 'ethers';
 
-const { HDNode, providers, utils, Wallet } = ethers;
+const { HDNode, utils, Wallet } = ethers;
 
 const network = 'rinkeby';
 
-const PROVIDER = providers.getDefaultProvider(network);
+const PROVIDER = ethers.getDefaultProvider(network);
 
 export const generateMnemonics = () => {
   return HDNode.entropyToMnemonic(utils.randomBytes(16)).split(' ');

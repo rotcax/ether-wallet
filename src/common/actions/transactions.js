@@ -1,4 +1,4 @@
-import ethers, { Wallet } from 'ethers';
+import { ethers } from 'ethers';
 import { notify } from './general';
 import { wallet as WalletStore } from '../stores';
 import { Transactions as TransactionsService } from '../services';
