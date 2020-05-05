@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { General as GeneralActions, Wallets as WalletActions, Prices as PricesActions } from '../../../common/actions';
 import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native';
 import { inject, observer } from 'mobx-react';
+import { measures } from '../../../common/styles';
+import WalletCard from './WalletCard';
+import NoWallets from './NoWallets';
+import TotalBalance from './TotalBalance';
 
 @inject('prices', 'wallets')
 @observer
@@ -25,10 +29,38 @@ export class WalletsOverview extends Component {
     }
   }
 
+  onPressWallet(wallet) {
+    if(this.loading) return ;
+    WalletActions.selectWallet(wallet);
+    this.props.navigation.navigate('WalletDetails', { wallet });
+  }
+
+  renderItem = ({ item }) => (
+    <WalletCard
+      wallet={item}
+      onPress={() => this.onPressWallet(item)}
+    />
+  );
+
+  renderBody = list => (!list.length && !this.loading)
+    ? <NoWallets/>
+    : (
+      <FlatList
+        style={styles.content}
+        data={list}
+        refreshControl={<RefreshControl refreshing={this.loading} onRefresh={() => this.populate()}/>}
+        keyExtractor={(item, index) => String(index)}
+        renderItem={this.renderItem}
+      />
+    );
+
   render() {
+    const { list } = this.props.wallets;
+
     return (
       <View style={styles.container}>
-        <Text>Wallets Overview</Text>
+        <TotalBalance wallets={list}/>
+        {this.renderBody(list)}
       </View>
     );
   }
@@ -37,8 +69,11 @@ export class WalletsOverview extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: measures.defaultPadding,
+    alignItems: 'stretch',
+    justifyContent: 'flex-start'
   },
+  content: {
+    marginTop: measures.defaultMargin
+  }
 });
