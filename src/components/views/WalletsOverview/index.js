@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { General as GeneralActions, Wallets as WalletActions, Prices as PricesActions } from '../../../common/actions';
-import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native';
-import { inject, observer } from 'mobx-react';
-import { measures } from '../../../common/styles';
-import WalletCard from './WalletCard';
-import NoWallets from './NoWallets';
-import TotalBalance from './TotalBalance';
+import React, { Component } from 'react'
+import { General as GeneralActions, Wallets as WalletActions, Prices as PricesActions } from '../../../common/actions'
+import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native'
+import { inject, observer } from 'mobx-react'
+import { measures } from '../../../common/styles'
+import WalletCard from './WalletCard'
+import NoWallets from './NoWallets'
+import TotalBalance from './TotalBalance'
 
 @inject('prices', 'wallets')
 @observer
 export class WalletsOverview extends Component {
   get loading() {
-    return this.props.prices.loading || this.props.wallets.loading;
+    return this.props.prices.loading || this.props.wallets.loading
   }
 
   componentDidMount() {
-    this.populate();
+    this.populate()
   }
 
   async populate() {
@@ -23,16 +23,16 @@ export class WalletsOverview extends Component {
       await Promise.all([
         WalletActions.loadWallets(),
         PricesActions.getPrice()
-      ]); 
+      ])
     } catch(e) {
-      GeneralActions.notify(e.message, 'long');
+      GeneralActions.notify(e.message, 'long')
     }
   }
 
   onPressWallet(wallet) {
-    if(this.loading) return ;
-    WalletActions.selectWallet(wallet);
-    this.props.navigation.navigate('WalletDetails', { wallet });
+    if(this.loading) return
+    WalletActions.selectWallet(wallet)
+    this.props.navigation.navigate('WalletDetails', { wallet })
   }
 
   renderItem = ({ item }) => (
@@ -40,10 +40,10 @@ export class WalletsOverview extends Component {
       wallet={item}
       onPress={() => this.onPressWallet(item)}
     />
-  );
+  )
 
   renderBody = list => (!list.length && !this.loading)
-    ? <NoWallets/>
+    ? <NoWallets {...this.props.navigation}/>
     : (
       <FlatList
         style={styles.content}
@@ -52,17 +52,17 @@ export class WalletsOverview extends Component {
         keyExtractor={(item, index) => String(index)}
         renderItem={this.renderItem}
       />
-    );
+    )
 
   render() {
-    const { list } = this.props.wallets;
+    const { list } = this.props.wallets
 
     return (
       <View style={styles.container}>
         <TotalBalance wallets={list}/>
         {this.renderBody(list)}
       </View>
-    );
+    )
   }
 }
 
@@ -76,4 +76,4 @@ const styles = StyleSheet.create({
   content: {
     marginTop: measures.defaultMargin
   }
-});
+})
