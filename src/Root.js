@@ -1,17 +1,17 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { WalletsOverview } from './components/views';
-import { HeaderIcon } from './components/widgets';
-import { colors } from './common/styles';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { WalletsOverview } from './components/views'
+import { HeaderIcon } from './components/widgets'
+import { colors } from './common/styles'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const Root = () => (
   <NavigationContainer>
     <Stack.Navigator>
-      <Stack.Screen 
-        name="WalletsOverview" 
+      <Stack.Screen
+        name="WalletsOverview"
         component={WalletsOverview}
         options={{
           title: 'Overview',
@@ -40,6 +40,6 @@ const Root = () => (
       />
     </Stack.Navigator>
   </NavigationContainer>
-);
+)
 
-export default Root;
+export default Root
