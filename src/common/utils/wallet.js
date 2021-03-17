@@ -1,13 +1,13 @@
 import { ethers } from 'ethers'
 
-const { HDNode, utils, Wallet } = ethers
+const { utils, Wallet } = ethers
 
 const network = 'rinkeby'
 
 const PROVIDER = ethers.getDefaultProvider(network)
 
 export const generateMnemonics = () => {
-  return HDNode.entropyToMnemonic(utils.randomBytes(16)).split(' ')
+  return utils.HDNode.entropyToMnemonic(utils.randomBytes(16)).split(' ')
 }
 
 export const loadWalletFromMnemonics = mnemonics => {
