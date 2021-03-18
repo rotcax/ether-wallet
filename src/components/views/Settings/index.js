@@ -3,8 +3,7 @@ import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { colors, measures } from '../../../common/styles'
 import { General as GeneralActions } from '../../../common/actions'
-import { Icon } from '../../widgets'
-import ListItem from './ListItem'
+import { Icon, ListItem } from '../../widgets'
 
 @inject('wallet')
 @observer
