@@ -6,7 +6,8 @@ import { colors } from './common/styles'
 import {
   WalletsOverview,
   NewWalletName,
-  Settings
+  Settings,
+  ChangeCurrency
 } from './components/views'
 
 const Stack = createStackNavigator()
@@ -43,6 +44,7 @@ const Root = () => (
     <Stack.Navigator screenOptions={screensOptions} initialRouteName="WalletsOverview">
       <Stack.Screen name="NewWalletName" component={NewWalletName} options={{ title: 'New Wallet Name' }} />
       <Stack.Screen name="Settings" component={Settings} options={{ title: 'Settings' }} />
+      <Stack.Screen name="ChangeCurrency" component={ChangeCurrency} options={{ title: 'Select currency' }} />
       <Stack.Screen name="WalletsOverview" component={WalletsOverview} options={WalletsOverviewOptions} />
     </Stack.Navigator>
   </NavigationContainer>

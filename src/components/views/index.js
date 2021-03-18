@@ -1,4 +1,5 @@
 export { default as CreateWallet } from './CreateWallet'
 export { default as NewWalletName } from './NewWalletName'
 export { default as Settings } from './Settings'
+export { default as ChangeCurrency } from './ChangeCurrency'
 export * from './WalletsOverview'
