@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { General as GeneralActions, Wallets as WalletActions, Prices as PricesActions } from '../../../common/actions'
-import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native'
+import { View, StyleSheet, FlatList, RefreshControl } from 'react-native'
 import { inject, observer } from 'mobx-react'
 import { measures } from '../../../common/styles'
 import WalletCard from './WalletCard'
@@ -9,7 +9,7 @@ import TotalBalance from './TotalBalance'
 
 @inject('prices', 'wallets')
 @observer
-export class WalletsOverview extends Component {
+export default class WalletsOverview extends Component {
   get loading() {
     return this.props.prices.loading || this.props.wallets.loading
   }

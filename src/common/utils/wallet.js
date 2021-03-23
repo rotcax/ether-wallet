@@ -1,9 +1,7 @@
 import { ethers } from 'ethers'
 
 const { utils, Wallet } = ethers
-
 const network = 'rinkeby'
-
 const PROVIDER = ethers.getDefaultProvider(network)
 
 export const generateMnemonics = () => {

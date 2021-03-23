@@ -22,9 +22,12 @@ export default class ConfirmMnemonics extends Component {
     try {
       const { mnemonics, walletName, walletDescription } = this.state
       const wallet = WalletUtils.loadWalletFromMnemonics(mnemonics)
+
       await WalletsActions.addWallet(walletName, wallet, walletDescription)
-      this.props.navigation.navigate('WalletsOverview', { replaceRoute: true })
       await WalletsActions.saveWallets()
+
+      this.props.navigation.navigate('WalletsOverview', { replaceRoute: true })
+
     } catch (e) {
       GeneralActions.notify(e.message, 'long')
     }
@@ -44,31 +47,32 @@ export default class ConfirmMnemonics extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flex: 1,
-      backgroundColor: colors.defaultBackground
-    },
-    message: {
-      color: colors.black,
-      fontSize: 16,
-      textAlign: 'center',
-      marginVertical: measures.defaultMargin,
-      marginHorizontal: 32
-    },
-    mnemonicsContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      maxWidth: '80%'
-    },
-    mnemonic: {
-      margin: 4
-    },
-    buttonsContainer: {
-      width: '100%',
-      justifyContent: 'flex-end',
-      height: 104
-    }
+  container: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flex: 1,
+    backgroundColor: colors.defaultBackground,
+    padding: measures.defaultPadding
+  },
+  message: {
+    color: colors.black,
+    fontSize: 16,
+    textAlign: 'center',
+    marginVertical: measures.defaultMargin,
+    marginHorizontal: 32
+  },
+  mnemonicsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    maxWidth: '80%'
+  },
+  mnemonic: {
+    margin: 4
+  },
+  buttonsContainer: {
+    width: '100%',
+    justifyContent: 'flex-end',
+    height: 104
+  }
 })
