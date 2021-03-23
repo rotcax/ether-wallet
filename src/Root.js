@@ -7,7 +7,9 @@ import {
   WalletsOverview,
   NewWalletName,
   Settings,
-  ChangeCurrency
+  ChangeCurrency,
+  NewWallet,
+  CreateMnemonics
 } from './components/views'
 
 const Stack = createStackNavigator()
@@ -45,6 +47,8 @@ const Root = () => (
       <Stack.Screen name="NewWalletName" component={NewWalletName} options={{ title: 'New Wallet Name' }} />
       <Stack.Screen name="Settings" component={Settings} options={{ title: 'Settings' }} />
       <Stack.Screen name="ChangeCurrency" component={ChangeCurrency} options={{ title: 'Select currency' }} />
+      <Stack.Screen name="NewWallet" component={NewWallet} options={{ title: 'New Wallet' }} />
+      <Stack.Screen name="CreateMnemonics" component={CreateMnemonics} options={{ title: 'Create Wallet' }} />
       <Stack.Screen name="WalletsOverview" component={WalletsOverview} options={WalletsOverviewOptions} />
     </Stack.Navigator>
   </NavigationContainer>
