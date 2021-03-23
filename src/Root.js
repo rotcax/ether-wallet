@@ -9,7 +9,9 @@ import {
   Settings,
   ChangeCurrency,
   NewWallet,
-  CreateMnemonics
+  CreateMnemonics,
+  SendCoins,
+  CreateWallet
 } from './components/views'
 
 const Stack = createStackNavigator()
@@ -44,12 +46,14 @@ const WalletsOverviewOptions = ({ navigation }) => ({
 const Root = () => (
   <NavigationContainer>
     <Stack.Navigator screenOptions={screensOptions} initialRouteName="WalletsOverview">
-      <Stack.Screen name="NewWalletName" component={NewWalletName} options={{ title: 'New Wallet Name' }} />
+      <Stack.Screen name="WalletsOverview" component={WalletsOverview} options={WalletsOverviewOptions} />
       <Stack.Screen name="Settings" component={Settings} options={{ title: 'Settings' }} />
       <Stack.Screen name="ChangeCurrency" component={ChangeCurrency} options={{ title: 'Select currency' }} />
+      <Stack.Screen name="NewWalletName" component={NewWalletName} options={{ title: 'New Wallet Name' }} />
       <Stack.Screen name="NewWallet" component={NewWallet} options={{ title: 'New Wallet' }} />
+      <Stack.Screen name="CreateWallet" component={CreateWallet} options={{ title: 'Create Wallet' }} />
       <Stack.Screen name="CreateMnemonics" component={CreateMnemonics} options={{ title: 'Create Wallet' }} />
-      <Stack.Screen name="WalletsOverview" component={WalletsOverview} options={WalletsOverviewOptions} />
+      <Stack.Screen name="SendCoins" component={SendCoins} />
     </Stack.Navigator>
   </NavigationContainer>
 )

@@ -5,7 +5,7 @@ import { colors, measures } from '../../../common/styles'
 
 export default class CreateWallet extends Component {
   onPressProceed() {
-    const { walletName, walletDescription } = this.props.navigation.state.params
+    const { walletName, walletDescription } = this.props.route.params
     this.props.navigation.navigate('CreateMnemonics', { walletName, walletDescription })
   }
 

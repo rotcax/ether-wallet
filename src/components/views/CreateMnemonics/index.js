@@ -11,7 +11,7 @@ export default class CreateMnemonics extends Component {
 
   onPressProceed() {
     const { mnemonics } = this.state
-    const { walletName, walletDescription } = this.props.navigation.state.params
+    const { walletName, walletDescription } = this.props.route.params
 
     this.props.navigation.navigate('ConfirmMnemonics', { mnemonics, walletName, walletDescription })
   }

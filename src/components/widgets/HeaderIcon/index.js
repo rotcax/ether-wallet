@@ -1,18 +1,20 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Icon } from '../Icon';
-import { measures } from '../../../common/styles';
+import React from 'react'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { measures } from '../../../common/styles'
+import Icon from '../Icon'
 
-export const HeaderIcon = ({ onPress, ...props }) => (
+const HeaderIcon = ({ onPress, ...props }) => (
   <TouchableOpacity onPress={onPress}>
     <View style={styles.container}>
       <Icon {...props}/>
     </View>
   </TouchableOpacity>
-);
+)
 
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: measures.defaultMargin * 2
   }
-});
+})
+
+export default HeaderIcon

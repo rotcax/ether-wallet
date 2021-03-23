@@ -5,12 +5,12 @@ import { Button } from '../../widgets'
 
 export default class NewWallet extends Component {
   onPressLoad() {
-    const { walletName, walletDescription } = this.props.navigation.state.params
+    const { walletName, walletDescription } = this.props.route.params
     this.props.navigation.navigate('LoadWallet', { walletName, walletDescription })
   }
 
   onPressCreate() {
-    const { walletName, walletDescription } = this.props.navigation.state.params
+    const { walletName, walletDescription } = this.props.route.params
     this.props.navigation.navigate('CreateWallet', { walletName, walletDescription })
   }
 
