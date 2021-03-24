@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     width: '100%',
     justifyContent: 'space-between',
-    height: 52
+    marginBottom: 12
   },
   input: {
     width: '90%',

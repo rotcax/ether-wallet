@@ -16,7 +16,7 @@ export const loadWallets = async () => {
     const wallet = WalletUtils.loadWalletFromPrivateKey(privateKey);
     WalletsStore.addWallet(name, wallet, description);
   });
-  
+
   WalletsStore.isLoading(false);
 }
 

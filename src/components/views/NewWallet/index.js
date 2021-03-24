@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 32
   },
   buttonsContainer: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginBottom: 12
   }
 })

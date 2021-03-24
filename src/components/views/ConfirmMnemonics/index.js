@@ -73,6 +73,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     width: '100%',
     justifyContent: 'flex-end',
-    height: 104
+    marginBottom: 12
   }
 })

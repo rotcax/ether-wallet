@@ -19,7 +19,8 @@ export class WalletsStore {
     wallet.name = walletName
     wallet.description = walletDescription
 
-    this.list.push(wallet)
+    const walletExist = this.list.some(l => l.address == wallet.address)
+    if (!walletExist) this.list.push(wallet)
   }
 
   @action removeWallet(wallet) {

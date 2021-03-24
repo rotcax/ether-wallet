@@ -19,7 +19,7 @@ export default class WalletCard extends Component {
   }
 
   componentDidMount() {
-    WalletActions.updateBalance(this.props.wallet);
+    // WalletActions.updateBalance(this.props.wallet);
   }
 
   render() {

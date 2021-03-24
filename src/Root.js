@@ -53,8 +53,8 @@ const Root = () => (
       <Stack.Screen name="NewWalletName" component={NewWalletName} options={{ title: 'New Wallet Name' }} />
       <Stack.Screen name="NewWallet" component={NewWallet} options={{ title: 'New Wallet' }} />
       <Stack.Screen name="CreateWallet" component={CreateWallet} options={{ title: 'Create Wallet' }} />
-      <Stack.Screen name="CreateMnemonics" component={CreateMnemonics} options={{ title: 'Create Wallet' }} />
-      <Stack.Screen name="ConfirmMnemonics" component={ConfirmMnemonics} options={{ title: 'Create Wallet' }} />
+      <Stack.Screen name="CreateMnemonics" component={CreateMnemonics} options={{ title: 'Create Mnemonics' }} />
+      <Stack.Screen name="ConfirmMnemonics" component={ConfirmMnemonics} options={{ title: 'Confirm Mnemonics' }} />
       <Stack.Screen name="SendCoins" component={SendCoins} />
     </Stack.Navigator>
   </NavigationContainer>
