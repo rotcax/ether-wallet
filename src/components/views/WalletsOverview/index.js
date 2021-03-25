@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { General as GeneralActions, Wallets as WalletActions, Prices as PricesActions } from '../../../common/actions'
 import { View, StyleSheet, FlatList, RefreshControl } from 'react-native'
 import { inject, observer } from 'mobx-react'
-import { measures } from '../../../common/styles'
+import { measures } from '@common/styles'
 import WalletCard from './WalletCard'
 import NoWallets from './NoWallets'
 import TotalBalance from './TotalBalance'
@@ -32,7 +32,8 @@ export default class WalletsOverview extends Component {
   onPressWallet(wallet) {
     if(this.loading) return
     WalletActions.selectWallet(wallet)
-    this.props.navigation.navigate('WalletDetails', { wallet })
+    // this.props.navigation.navigate('WalletDetails', { wallet })
+    this.props.navigation.navigate('WalletDetails')
   }
 
   renderItem = ({ item }) => (
