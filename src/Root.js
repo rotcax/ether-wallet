@@ -45,6 +45,10 @@ const WalletsOverviewOptions = ({ navigation }) => ({
   )
 })
 
+const WalletDetailsOptions = ({ route }) => ({
+  title: route.params.wallet.name
+})
+
 const Root = () => (
   <NavigationContainer>
     <Stack.Navigator screenOptions={screensOptions} initialRouteName="WalletsOverview">
@@ -57,7 +61,7 @@ const Root = () => (
       <Stack.Screen name="CreateMnemonics" component={CreateMnemonics} options={{ title: 'Create Mnemonics' }} />
       <Stack.Screen name="ConfirmMnemonics" component={ConfirmMnemonics} options={{ title: 'Confirm Mnemonics' }} />
       <Stack.Screen name="SendCoins" component={SendCoins} />
-      <Stack.Screen name="WalletDetails" component={WalletDetails} />
+      <Stack.Screen name="WalletDetails" component={WalletDetails} options={WalletDetailsOptions} />
     </Stack.Navigator>
   </NavigationContainer>
 )

@@ -30,7 +30,7 @@ export const loadWalletFromPrivateKey = pk => {
 }
 
 export const formatBalance = balance => {
-  return utils.formatEther(balance)
+  return utils.formatEther(balance ? balance : 0)
 }
 
 export const reduceBigNumbers = items => {

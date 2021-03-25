@@ -6,11 +6,11 @@ import Panel from './panel'
 
 export default class Calculator extends React.Component {
   get amount() {
-    return this.refs.panel.wrappedInstance.amount
+    return this.refs.panel.amount
   }
 
   onPressNumber(number) {
-    this.refs.panel.wrappedInstance.onChange(number)
+    this.refs.panel.onChange(number)
   }
 
   render() {

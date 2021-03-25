@@ -33,7 +33,11 @@ export default class WalletsOverview extends Component {
     if(this.loading) return
     WalletActions.selectWallet(wallet)
     // this.props.navigation.navigate('WalletDetails', { wallet })
-    this.props.navigation.navigate('WalletDetails')
+    this.props.navigation.navigate('WalletDetails', {
+      wallet: {
+        name: wallet.name
+      }
+    })
   }
 
   renderItem = ({ item }) => (

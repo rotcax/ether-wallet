@@ -1,20 +1,43 @@
 import React from 'react'
-import { TabView } from '@components/widgets'
-// import { ReceiveCoins, SendCoins, WalletExtract, WalletSettings } from '..'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Icon } from '@components/widgets'
+import { colors } from '@common/styles'
+import ReceiveCoins from '../ReceiveCoins'
+import SendCoins from '../SendCoins'
+import WalletExtract from '../WalletExtract'
+import WalletSettings from '../WalletSettings'
 
-export default class WalletDetails extends React.Component {
-  // static navigationOptions = ({ navigation }) => ({
-  //   title: navigation.state.params.wallet.name
-  // })
+const Tab = createBottomTabNavigator()
 
-  tabs = [
-    // { id: 'extract', label: 'Extract', icon: 'list', content: <WalletExtract {...this.props} /> },
-    // { id: 'receive', label: 'Receive', icon: 'qrcode', type: 'fa', content: <ReceiveCoins {...this.props} /> },
-    // { id: 'send', label: 'Send', icon: 'cube-send', type: 'mdc', content: <SendCoins {...this.props} /> },
-    // { id: 'settings', label: 'Settings', icon: 'settings', content: <WalletSettings {...this.props} /> }
-  ]
+const screenOptions = ({ route: { name } }) => ({
+  tabBarIcon: ({ focused }) => {
+    let icon = {
+      name: '',
+      type: ''
+    }
 
-  render() {
-    return <TabView tabs={this.tabs} />
+    if (name === 'Settings') icon.name = 'settings'
+    if (name === 'Send') icon = { name: 'cube-send', type: 'mdc' }
+    if (name === 'Extract') icon.name = 'list'
+    if (name === 'Receive') icon = { name: 'qrcode', type: 'fa' }
+
+    return <Icon color={focused ? colors.black : colors.gray} type={icon.type} name={icon.name} />
   }
-}
+})
+
+const WalletDetails = () => (
+  <Tab.Navigator
+    screenOptions={screenOptions}
+    tabBarOptions={{
+      activeTintColor: colors.black,
+      inactiveTintColor: colors.gray,
+    }}
+  >
+    <Tab.Screen name="Extract" component={WalletExtract} />
+    <Tab.Screen name="Receive" component={ReceiveCoins} />
+    <Tab.Screen name="Send" component={SendCoins} />
+    <Tab.Screen name="Settings" component={WalletSettings} />
+  </Tab.Navigator>
+)
+
+export default WalletDetails
