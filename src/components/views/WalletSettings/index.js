@@ -22,8 +22,8 @@ export default class WalletSettings extends Component {
   }
 
   showPK() {
-    const { wallet } = this.props
-    this.props.navigation.push('ShowPrivateKey', { wallet })
+    const { wallet: { item: { privateKey } } } = this.props
+    this.props.navigation.push('ShowPrivateKey', { privateKey })
   }
 
   confirmRemoveWallet() {

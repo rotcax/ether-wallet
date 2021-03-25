@@ -13,7 +13,8 @@ import {
   SendCoins,
   CreateWallet,
   ConfirmMnemonics,
-  WalletDetails
+  WalletDetails,
+  ShowPrivateKey
 } from './components/views'
 
 const Stack = createStackNavigator()
@@ -62,6 +63,7 @@ const Root = () => (
       <Stack.Screen name="ConfirmMnemonics" component={ConfirmMnemonics} options={{ title: 'Confirm Mnemonics' }} />
       <Stack.Screen name="SendCoins" component={SendCoins} />
       <Stack.Screen name="WalletDetails" component={WalletDetails} options={WalletDetailsOptions} />
+      <Stack.Screen name="ShowPrivateKey" component={ShowPrivateKey} options={{ title: 'Private key' }} />
     </Stack.Navigator>
   </NavigationContainer>
 )
