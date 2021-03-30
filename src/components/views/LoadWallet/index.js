@@ -4,9 +4,6 @@ import { Button } from '@components/widgets'
 import { colors, measures } from '@common/styles'
 
 export default class LoadWallet extends Component {
-
-  static navigationOptions = { title: 'Load Wallet' }
-
   render() {
     const { walletName, walletDescription } = this.props.route.params
 
@@ -16,11 +13,11 @@ export default class LoadWallet extends Component {
         <View style={styles.buttonsContainer}>
           <Button
             children="Private key"
-            onPress={() => navigate('LoadPrivateKey', { walletName, walletDescription })}
+            onPress={() => this.props.navigation.navigate('LoadPrivateKey', { walletName, walletDescription })}
           />
           <Button
             children="Mnemonics"
-            onPress={() => navigate('LoadMnemonics', { walletName, walletDescription })}
+            onPress={() => this.props.navigation.navigate('LoadMnemonics', { walletName, walletDescription })}
           />
         </View>
       </View>

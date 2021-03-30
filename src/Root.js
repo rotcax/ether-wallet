@@ -15,7 +15,11 @@ import {
   ConfirmMnemonics,
   WalletDetails,
   ShowPrivateKey,
-  LoadWallet
+  LoadWallet,
+  LoadMnemonics,
+  ConfirmTransaction,
+  LoadPrivateKey,
+  SelectDestination
 } from './components/views'
 
 const Stack = createStackNavigator()
@@ -66,6 +70,10 @@ const Root = () => (
       <Stack.Screen name="WalletDetails" component={WalletDetails} options={WalletDetailsOptions} />
       <Stack.Screen name="ShowPrivateKey" component={ShowPrivateKey} options={{ title: 'Private key' }} />
       <Stack.Screen name="LoadWallet" component={LoadWallet} options={{ title: 'Load Wallet' }} />
+      <Stack.Screen name="LoadMnemonics" component={LoadMnemonics} options={{ title: 'Load Wallet' }} />
+      <Stack.Screen name="ConfirmTransaction" component={ConfirmTransaction} options={{ title: 'Confirm transaction' }} />
+      <Stack.Screen name="LoadPrivateKey" component={LoadPrivateKey} options={{ title: 'Load Wallet' }} />
+      <Stack.Screen name="SelectDestination" component={SelectDestination} options={{ title: 'Select destination' }} />
     </Stack.Navigator>
   </NavigationContainer>
 )
